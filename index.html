@@ -1,0 +1,48 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+  <title>Credit Card Validation</title>
+</head>
+
+<body>
+  <form>
+    <label for="cardNumber">Enter credit card number:</label>
+    <input type="text" id="cardNumber" name="cardNumber">
+    <button type="button" onclick="validate()">Validate</button>
+  </form>
+  <p id="result"></p>
+  <script>
+    function validate() {
+      // Get the card number from the input field
+      let cardNumber = document.querySelector("#cardNumber").value;
+      let result = document.querySelector("#result");
+
+      // Define regular expressions for different card types
+      let visaRegExp = new RegExp(/^4[0-9]{12}(?:[0-9]{3})?$/);
+
+      let mcRegExp = new RegExp(/^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/);
+      let amexRegExp = new RegExp(/^3[47][0-9]{13}$/);
+      let discoverRegExp = new RegExp( /^(6011[0-9]{12}|(64[4-9][0-9]{13})|(65[0-9]{14}))$/);
+
+      // Test card number against regular expressions for different card types
+      if (visaRegExp.test(cardNumber)) {
+        result.innerHTML = "The card is a Visa card.";
+      } else if (mcRegExp.test(cardNumber)) {
+        result.innerHTML = "The card is a MasterCard.";
+      } else if (amexRegExp.test(cardNumber)) {
+        result.innerHTML = "The card is an American Express card.";
+      } else if (discoverRegExp.test(cardNumber)) {
+        result.innerHTML = "The card is a Discover card.";
+      } else if (dinersClubRegExp.test(cardNumber)) {
+        result.innerHTML = "The card is a Diners Club card.";
+      } else if (jcbRegExp.test(cardNumber)) {
+        result.innerHTML = "The card is a JCB card.";
+      } else {
+        result.innerHTML = "Invalid card number";
+      }
+    }
+  </script>
+</body>
+
+</html> -->
