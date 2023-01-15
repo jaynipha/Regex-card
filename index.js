@@ -1,11 +1,8 @@
-let isValid = visaRegExp.test(cardNumber);
-//console.log(isValid); // true
-
 function validateCreditCard(cardNumber) {
-    // Define regular expressions for different card types
-    let visaRegExp = new RegExp(/^4[0-9]{12}(?:[0-9]{3})?$/);
+	// Define regular expressions for different card types
+	let visaExpress = new RegExp(/^4[0-9]{12}(?:[0-9]{3})?$/);
 
-    /*
+	/*
 	To validate a visa card, I made sure of the following:
 	1. I made sure that the string being passed in should not contain any special characters, alphabets or whitespaces.
 	2. I made sure that the string should start with IIN of 4
@@ -26,11 +23,11 @@ function validateCreditCard(cardNumber) {
 In this regex, the ^ and $ anchors ensures that the entire string is matched by the pattern, and not just a part of it, the [0-9]{12} matches the first 12 digits of Visa card number, the (?:) followed by [0-9]{3} is optional group that matches the last three digits of Visa card number and the ? after the group makes the group optional.
 	 */
 
-    let mcRegExp = new RegExp(
-        /^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/
-    );
+	let mcExpress = new RegExp(
+		/^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/
+	);
 
-    /*
+	/*
 	To validate a mastercard, I made sure of the following:
 	1. I made sure that the string being passed in shouldn't contain any special characters, alphabets or whitespaces, so I didn't include any word character, whitespace or special characters pattern in my regex.
 	2. I made sure that the number of characters must be equal to 16.
@@ -64,8 +61,8 @@ In this regex, the ^ and $ anchors ensures that the entire string is matched by 
 		
 		*/
 
-    let amexRegExp = new RegExp(/^3[47][0-9]{13}$/);
-    /*
+	let amexExpress = new RegExp(/^3[47][0-9]{13}$/);
+	/*
 	To validate an american express card, I made sure of the following:
 	1. I made sure that the string being passed should not contain any special characters, alphabets or whitespaces.
 	2. I made sure that the number of characters must be equal to 15.
@@ -82,10 +79,10 @@ $ : End of the string anchor
 In this regex, the ^ and $ anchors ensures that the entire string is matched by the pattern, and not just a part of it, the 3[47] matches the first two digits of American Express card number, the [0-9]{13} matches the remaining 13 digits of the card number that can be any numerical digit
 	*/
 
-    let discoverRegExp = new RegExp(
-        /^(6011[0-9]{12}|(64[4-9][0-9]{13})|(65[0-9]{14}))$/
-    );
-    /*
+	let discoverExpress = new RegExp(
+		/^(6011[0-9]{12}|(64[4-9][0-9]{13})|(65[0-9]{14}))$/
+	);
+	/*
 	To validate a discover card, I made sure of the following:
 	1. I made sure that the string being passed should not contain any special characters, alphabets or whitespaces.
 	2. I made sure that the number of characters must be equal to 16.
@@ -111,21 +108,21 @@ In this regex, the ^ and $ anchors ensures that the entire string is matched by 
 
 	*/
 
-    //Test card number against regular expressions for different card types
-    if (visaRegExp.test(cardNumber)) {
-        return "Visa";
-    } else if (mcRegExp.test(cardNumber)) {
-        return "MasterCard";
-    } else if (amexRegExp.test(cardNumber)) {
-        return "American Express";
-    } else if (discoverRegExp.test(cardNumber)) {
-        return "Discover";
-    } else {
-        return "Invalid card number";
-    }
+	//Test card number against regular expressions for different card types
+	if (visaExpress.test(cardNumber)) {
+		return 'Visa';
+	} else if (mcExpress.test(cardNumber)) {
+		return 'MasterCard';
+	} else if (amexExpress.test(cardNumber)) {
+		return 'American Express';
+	} else if (discoverExpress.test(cardNumber)) {
+		return 'Discover';
+	} else {
+		return 'Invalid card number';
+	}
 }
 
-console.log(validateCreditCard("4111111111111111"));
-console.log(validateCreditCard("5300000000000000"));
-console.log(validateCreditCard("378282246310005"));
-console.log(validateCreditCard("2267237072042696"));
+console.log(validateCreditCard('4111111111111111'));
+console.log(validateCreditCard('5300000000000000'));
+console.log(validateCreditCard('378282246310005'));
+console.log(validateCreditCard('2267237072042696'));
